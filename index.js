@@ -1,6 +1,7 @@
 import express from "express";
 import nunjuncks from "nunjucks";
 import bodyParser from "body-parser";
+import db from "./models/index.js";
 const app = express();
 const port = 3000;
 const __dirname = import.meta.dirname;
@@ -12,8 +13,13 @@ nunjuncks.configure("views", {
   express: app,
 });
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   console.log(req.query);
+
+  let posts = await db.Post.findAll();
+
+  console.log(posts);
+
   res.render("index.njk");
 });
 
@@ -22,7 +28,7 @@ app.get("/answer", (req, res) => {
 });
 
 app.post("/answer", (req, res) => {
-  res.render("answer.njk", {...req.body, ...req.query});
+  res.render("answer.njk", { ...req.body, ...req.query });
 });
 
 app.listen(port, () => {
