@@ -1,0 +1,15 @@
+{% extends "partials/layout.njk" %}
+{% block title %}View post{% endblock %}
+{% block content %}
+    <div class="card mt-2">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.body}}</p>
+            <a href="/posts" class="btn btn-primary">Back</a>
+            <a href="/posts/{{post.id}}/edit" class="btn btn-warning">Edit</a>
+            <form action="/posts/{{post.id}}/delete" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

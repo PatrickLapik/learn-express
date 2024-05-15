@@ -1,12 +1,11 @@
 {
-  "name": "learnexpress",
+  "name": "ta22elearnexpress",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -e js,html,css,json,njk"
+    "dev": "nodemon -e js,json,njk"
   },
   "keywords": [],
   "author": "",

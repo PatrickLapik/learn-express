@@ -2,6 +2,11 @@
 import { Model } from "sequelize";
 export default (sequelize, DataTypes) => {
   class Post extends Model {
+
+    snippet() {
+      return this.body.length > 100 ? this.body.substring(0, 100) + "..." : this.body;
+    }
+
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
